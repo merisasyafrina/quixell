@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +18,39 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index', [
-        "title" => "test"
+        "title" => "Home No Auth"
     ]);
-});
+})->middleware('guest');
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', function () {
-    return view('auth.register');
-});
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'index']);
+
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
+
+Route::get('/collections', function () {
+    return view('collections.index', [
+        "title" => "Collections"
+    ]);
+})->middleware('auth');
+
+Route::get('/cart', function () {
+    return view('cart.index', [
+        "title" => "Cart"
+    ]);
+})->middleware('auth');
+
+Route::get('/aboutus', function () {
+    return view('aboutus.index', [
+        "title" => "About Us"
+    ]);
+})->middleware('auth');
+
+Route::get('/profile', function () {
+    return view('profile.index', [
+        "title" => "Profile"
+    ]);
+})->middleware('auth');
