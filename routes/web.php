@@ -20,34 +20,37 @@ Route::get('/', function () {
     return view('index', [
         "title" => "Home No Auth"
     ]);
-});
+})->middleware('guest');
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'index']);
+
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
 
 Route::get('/collections', function () {
     return view('collections.index', [
         "title" => "Collections"
     ]);
-});
+})->middleware('auth');
 
 Route::get('/cart', function () {
     return view('cart.index', [
         "title" => "Cart"
     ]);
-});
+})->middleware('auth');
 
 Route::get('/aboutus', function () {
     return view('aboutus.index', [
         "title" => "About Us"
     ]);
-});
+})->middleware('auth');
 
 Route::get('/profile', function () {
     return view('profile.index', [
         "title" => "Profile"
     ]);
-});
+})->middleware('auth');

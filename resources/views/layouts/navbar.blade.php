@@ -9,13 +9,8 @@
             </ul>
             <span class="navbar-text">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    @auth
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/register">REGISTER</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">LOGIN</a>
-                    </li>
-                    <!-- <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/home">HOME</a>
                     </li>
                     <li class="nav-item">
@@ -29,7 +24,15 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">PROFILE</a>
-                    </li> -->
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/register">REGISTER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">LOGIN</a>
+                    </li>
+                    @endauth
                 </ul>
             </span>
         </div>
