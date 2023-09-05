@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,19 +23,10 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index']);
 
-// Route::get('/register', function () {
-//     return view('auth.register', [
-//         "title" => "Register"
-//     ]);
-// });
-
-Route::get('/home', function () {
-    return view('home.index', [
-        "title" => "Home"
-    ]);
-});
+Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/collections', function () {
     return view('collections.index', [
