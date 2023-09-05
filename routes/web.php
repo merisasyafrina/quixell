@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +21,14 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/login', function () {
-    return view('auth.login', [
-        "title" => "Login"
-    ]);
-});
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
 
-Route::get('/register', function () {
-    return view('auth.register', [
-        "title" => "Register"
-    ]);
-});
+// Route::get('/register', function () {
+//     return view('auth.register', [
+//         "title" => "Register"
+//     ]);
+// });
 
 Route::get('/home', function () {
     return view('home.index', [
