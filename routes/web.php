@@ -5,6 +5,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CollectionsController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ProfileController;
 
@@ -30,11 +31,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
 
-Route::get('/collections', function () {
-    return view('collections.index', [
-        "title" => "Collections"
-    ]);
-})->middleware('auth');
+Route::get('/collections', [CollectionsController::class, 'index'])->middleware('auth');
 
 Route::get('/cart', function () {
     return view('cart.index', [
