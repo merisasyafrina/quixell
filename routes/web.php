@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +45,4 @@ Route::get('/cart', function () {
 
 Route::get('/aboutus', [AboutUsController::class, 'index'])->middleware('auth');
 
-Route::get('/profile', function () {
-    return view('profile.index', [
-        "title" => "Profile"
-    ]);
-})->middleware('auth');
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');

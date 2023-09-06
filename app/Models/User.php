@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'gender',
         'password',
+        'picture'
     ];
 
     protected $guarded = ['id'];
