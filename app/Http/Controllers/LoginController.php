@@ -26,8 +26,6 @@ class LoginController extends Controller
             return redirect()->intended('/home');
         }
 
-        dd($credentials);
-
         return back()->with('loginError', 'Login Failed!');
     }
 

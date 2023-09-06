@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row gx-5">
     <div class="col">
         <h3>SIGN IN</h3>
         <p>Welcome back! Sign in for faster checkout.</p>
@@ -37,14 +37,14 @@
 
             <div class="mb-3">
                 <button type="submit" class="btn btn-dark">SIGN IN</button>
-                <a href="/register" class="btn btn-link">Click here to register</a>
+                <a href="/register" class="btn btn-link" style="color: black;">Click here to register</a>
             </div>
         </form>
 
     </div>
-    <div class="col">
+    <div class="col login__newcust">
         <h3>NEW CUSTOMER</h3>
-        <a href="/register" type="button" class="btn btn-light">Register</a>
+        <a href="/register" type="button" class="btn btn-light mt-4" style="border-color: black;">REGISTER</a>
     </div>
 </div>
 
