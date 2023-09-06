@@ -34,6 +34,8 @@ Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
 
 Route::get('/collections', [CollectionsController::class, 'index'])->middleware('auth');
 Route::get('/collections/{id}', [CollectionsController::class, 'show'])->middleware('auth')->name('collections.detail');
+Route::post('/collections/{id}/add-to-bag', [CollectionsController::class, 'addToBag'])->middleware('auth')->name('collections.addToBag');
+
 
 Route::get('/cart', [CartController::class, 'index'])->middleware('auth')->name('cart.index');
 Route::post('/cart/{id}/increment', [CartController::class, 'incrementQuantity'])->middleware('auth')->name('cart.increment');
