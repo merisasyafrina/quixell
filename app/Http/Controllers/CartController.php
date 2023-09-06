@@ -20,6 +20,28 @@ class CartController extends Controller
         ]);
     }
 
+    public function incrementQuantity($id)
+    {
+        $cartItem = Cart::find($id);
+        
+        if ($cartItem) {
+            $cartItem->increment('quantity');
+        }
+
+        return redirect()->route('cart.index');
+    }
+
+    public function decrementQuantity($id)
+    {
+        $cartItem = Cart::find($id);
+
+        if ($cartItem && $cartItem->quantity > 1) {
+            $cartItem->decrement('quantity');
+        }
+
+        return redirect()->route('cart.index');
+    }
+
     public function destroy($id)
     {
         $cart = Cart::find($id);
