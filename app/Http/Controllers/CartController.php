@@ -54,7 +54,11 @@ class CartController extends Controller
             $cart->update(['checkout_status' => true]);
         }
 
-        return redirect()->route('cart.index')->with('success', 'Checkout successful.');
+        // Flash a success message to the session
+        session()->flash('success', 'Checkout successful.');
+
+        // Redirect to the cart index
+        return redirect()->route('cart.index');
     }
 
     public function destroy($id)

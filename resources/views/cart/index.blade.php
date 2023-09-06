@@ -52,6 +52,13 @@ $totalPrice += $cart->collection->price * $cart->quantity;
         <h3 style="font-weight: 500;"><strong>Total:</strong> Rp. {{ number_format($totalPrice, 0, '.', ',') }}</h3>
     </div>
 </div>
+
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
 <div style="display: flex;justify-content: flex-end; margin-bottom:100px">
     <form action="{{ route('cart.checkout') }}" method="POST">
         @csrf
