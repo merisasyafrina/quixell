@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Collections extends Model
 {
@@ -12,4 +13,9 @@ class Collections extends Model
         'photo',
         'price',
     ];
+
+    public function carts(): HasMany
+    {
+        return $this->hasMany(Cart::class);
+    }
 }

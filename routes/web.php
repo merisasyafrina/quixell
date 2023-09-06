@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CollectionsController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ProfileController;
 
@@ -33,13 +34,14 @@ Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
 
 Route::get('/collections', [CollectionsController::class, 'index'])->middleware('auth');
 Route::get('/collections/{id}', [CollectionsController::class, 'show'])->middleware('auth')->name('collections.detail');
+Route::post('/collections/{id}/add-to-bag', [CollectionsController::class, 'addToBag'])->middleware('auth')->name('collections.addToBag');
 
-Route::get('/cart', function () {
-    return view('cart.index', [
-        "title" => "Cart"
-    ]);
-})->middleware('auth');
 
+Route::get('/cart', [CartController::class, 'index'])->middleware('auth')->name('cart.index');
+Route::post('/cart/{id}/increment', [CartController::class, 'incrementQuantity'])->middleware('auth')->name('cart.increment');
+Route::post('/cart/{id}/decrement', [CartController::class, 'decrementQuantity'])->middleware('auth')->name('cart.decrement');
+Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+Route::delete('/cart/{id}', [CartController::class, 'destroy'])->middleware('auth')->name('cart.destroy');
 
 Route::get('/aboutus', [AboutUsController::class, 'index'])->middleware('auth');
 

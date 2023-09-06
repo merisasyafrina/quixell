@@ -10,7 +10,8 @@
     <div class="col-5" style="display: flex;flex-direction: column;justify-content: center;">
         <h1>{{ strtoupper($collection->name) }}</h1>
         <p>Rp. {{ number_format($collection->price, 0, '.', ',') }}</p>
-        <form action="">
+        <form action="{{ route('collections.addToBag', ['id' => $collection->id]) }}" method="POST">
+            @csrf
             <button type="submit" class="btn btn-lg btn-dark" style="width:100%">ADD TO BAG</button>
         </form>
     </div>

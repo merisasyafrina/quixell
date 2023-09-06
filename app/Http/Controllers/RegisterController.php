@@ -32,10 +32,10 @@ class RegisterController extends Controller
             ],
             'gender' => ['required'],
             'password' => ['required', 'min:8', 'confirmed'],
-            'picture' => ['nullable', 'url']
+            'photo' => ['nullable', 'url']
         ]);
 
-        $validated['picture'] = $validated['picture'] ?? 'https://images.unsplash.com/photo-1533794299596-8e62c88ff975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3687&q=80';
+        $validated['photo'] = $validated['photo'] ?? 'https://images.unsplash.com/photo-1533794299596-8e62c88ff975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3687&q=80';
 
         $validated['password'] = bcrypt($validated['password']);
 

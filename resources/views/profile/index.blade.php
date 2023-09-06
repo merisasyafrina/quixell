@@ -6,7 +6,7 @@
     <h1>PROFILE</h1>
     <div class="row mt-4">
         <div class="col-4">
-            <img width="320" height="480" src="{{ $user->picture }}" alt="img_profile">
+            <img width="320" height="480" src="{{ $user->photo }}" alt="img_profile">
             <form action="/logout" method="post">
                 @csrf
                 <button type="submit" class="btn btn-link mt-2" style="color: black;padding: 0;display: flex;justify-content: center;width: 70%;"><strong>Log Out</strong></button>

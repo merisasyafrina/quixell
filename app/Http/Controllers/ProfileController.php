@@ -41,7 +41,7 @@ class ProfileController extends Controller
             ],
             'gender' => ['nullable'],
             'password' => ['nullable', 'min:8', 'confirmed'], // Make the password field optional
-            'picture' => ['nullable', 'image', 'max:2048'], // Allow only image files up to 2MB and make it optional
+            'photo' => ['nullable', 'image', 'max:2048'], // Allow only image files up to 2MB and make it optional
         ]);
 
         // Update the user's data only if provided
@@ -61,10 +61,10 @@ class ProfileController extends Controller
             $user->gender = $validated['gender'];
         }
 
-        // Check if a new picture was uploaded and save it as a URL
-        if ($request->hasFile('picture')) {
-            $picturePath = $request->file('picture')->store('user_pictures'); // Store the uploaded file
-            $user->picture = Storage::url($picturePath); // Get the URL of the stored file
+        // Check if a new photo was uploaded and save it as a URL
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('user_photos'); // Store the uploaded file
+            $user->photo = Storage::url($photoPath); // Get the URL of the stored file
         }
 
         // Update the password if provided
