@@ -5,6 +5,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,11 +41,8 @@ Route::get('/cart', function () {
     ]);
 })->middleware('auth');
 
-Route::get('/aboutus', function () {
-    return view('aboutus.index', [
-        "title" => "About Us"
-    ]);
-})->middleware('auth');
+
+Route::get('/aboutus', [AboutUsController::class, 'index'])->middleware('auth');
 
 Route::get('/profile', function () {
     return view('profile.index', [
