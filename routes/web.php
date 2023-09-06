@@ -35,7 +35,8 @@ Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
 Route::get('/collections', [CollectionsController::class, 'index'])->middleware('auth');
 Route::get('/collections/{id}', [CollectionsController::class, 'show'])->middleware('auth')->name('collections.detail');
 
-Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
+Route::get('/cart', [CartController::class, 'index'])->middleware('auth')->name('cart.index');
+Route::delete('/cart/{id}', [CartController::class, 'destroy'])->middleware('auth')->name('cart.destroy');
 
 Route::get('/aboutus', [AboutUsController::class, 'index'])->middleware('auth');
 
