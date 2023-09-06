@@ -6,14 +6,14 @@
     <h1>PROFILE</h1>
     <div class="row mt-4">
         <div class="col-4">
-            <img width="320" height="480" src="{{ $user->photo }}" alt="img_profile">
+            <img style="width: 75%; height: 400px; object-fit: cover;" src="{{ $user->photo }}" alt="img_profile">
             <form action="/logout" method="post">
                 @csrf
                 <button type="submit" class="btn btn-link mt-2" style="color: black;padding: 0;display: flex;justify-content: center;width: 70%;"><strong>Log Out</strong></button>
             </form>
         </div>
         <div class="col-8">
-            <form action="/profile" method="post">
+            <form action="{{ route('profile.update') }}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="row gx-5">

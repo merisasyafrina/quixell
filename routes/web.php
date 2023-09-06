@@ -45,5 +45,5 @@ Route::delete('/cart/{id}', [CartController::class, 'destroy'])->middleware('aut
 
 Route::get('/aboutus', [AboutUsController::class, 'index'])->middleware('auth');
 
-Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
-Route::put('/profile', [ProfileController::class, 'update'])->middleware('auth');
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth')->name('profile.index');
+Route::put('/profile', [ProfileController::class, 'update'])->middleware('auth')->name('profile.update');
