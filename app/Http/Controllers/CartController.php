@@ -23,7 +23,7 @@ class CartController extends Controller
     public function incrementQuantity($id)
     {
         $cartItem = Cart::find($id);
-        
+
         if ($cartItem) {
             $cartItem->increment('quantity');
         }
@@ -40,6 +40,21 @@ class CartController extends Controller
         }
 
         return redirect()->route('cart.index');
+    }
+
+    public function checkout()
+    {
+        $user = Auth::user();
+
+        // Get all the user's carts
+        $carts = $user->carts;
+
+        // Loop through the carts and update checkout_status
+        foreach ($carts as $cart) {
+            $cart->update(['checkout_status' => true]);
+        }
+
+        return redirect()->route('cart.index')->with('success', 'Checkout successful.');
     }
 
     public function destroy($id)

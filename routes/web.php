@@ -38,6 +38,7 @@ Route::get('/collections/{id}', [CollectionsController::class, 'show'])->middlew
 Route::get('/cart', [CartController::class, 'index'])->middleware('auth')->name('cart.index');
 Route::post('/cart/{id}/increment', [CartController::class, 'incrementQuantity'])->middleware('auth')->name('cart.increment');
 Route::post('/cart/{id}/decrement', [CartController::class, 'decrementQuantity'])->middleware('auth')->name('cart.decrement');
+Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 Route::delete('/cart/{id}', [CartController::class, 'destroy'])->middleware('auth')->name('cart.destroy');
 
 Route::get('/aboutus', [AboutUsController::class, 'index'])->middleware('auth');

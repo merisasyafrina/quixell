@@ -53,7 +53,10 @@ $totalPrice += $cart->collection->price * $cart->quantity;
     </div>
 </div>
 <div style="display: flex;justify-content: flex-end; margin-bottom:100px">
-    <button type="submit" class="btn btn-lg btn-dark" style="width:30%">CHECK OUT</button>
+    <form action="{{ route('cart.checkout') }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-lg btn-dark" style="width: 100%">CHECK OUT</button>
+    </form>
 </div>
 @else
 <div style="display: flex;align-items: center;justify-content: center;">
