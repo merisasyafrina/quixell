@@ -2,7 +2,6 @@
 
 @section('content')
 
-<h4>{{ $title }}</h4>
 
 @endsection
 

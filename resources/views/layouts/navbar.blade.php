@@ -26,10 +26,10 @@
                         <a class="nav-link" href="/profile">PROFILE</a>
                     </li>
                     @else
-                    <li class="nav-item">
+                    <li class="nav-item{{ $title === 'Login' || $title === 'Register' ? ' d-none' : '' }}">
                         <a class="nav-link" aria-current="page" href="/register">REGISTER</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item{{ $title === 'Login' || $title === 'Register' ? ' d-none' : '' }}">
                         <a class="nav-link" href="/login">LOGIN</a>
                     </li>
                     @endauth
