@@ -13,8 +13,9 @@
             </form>
         </div>
         <div class="col-8">
-            <form action="/register" method="post">
+            <form action="/profile" method="post">
                 @csrf
+                @method('PUT')
                 <div class="row gx-5">
                     <div class="col">
                         <div class="mb-3">
@@ -49,7 +50,7 @@
 
                         <div class="mb-3">
                             <label for="file" class="form-label"><strong>Picture</strong></label>
-                            <input type="file" class="form-control" aria-label="file example" required>
+                            <input type="file" class="form-control" aria-label="file example">
                             <div class="invalid-feedback">Example invalid form file feedback</div>
                         </div>
                     </div>
@@ -67,14 +68,13 @@
                         <label for="gender" class="form-label"><strong>Gender</strong></label>
                         <div class="mt-1 mb-4">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="gender_male" value="male" {{ $user->gender === 'male' ? 'checked' : '' }} required>
+                                <input class="form-check-input" type="radio" name="gender" id="gender_male" value="male" {{ $user->gender === 'male' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="gender_male">Male</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="gender_female" value="female" {{ $user->gender === 'female' ? 'checked' : '' }} required>
+                                <input class="form-check-input" type="radio" name="gender" id="gender_female" value="female" {{ $user->gender === 'female' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="gender_female">Female</label>
                             </div>
-
                         </div>
 
                         <div class="mb-3">

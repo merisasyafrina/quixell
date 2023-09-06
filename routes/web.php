@@ -46,3 +46,4 @@ Route::get('/cart', function () {
 Route::get('/aboutus', [AboutUsController::class, 'index'])->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+Route::put('/profile', [ProfileController::class, 'update'])->middleware('auth');
