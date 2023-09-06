@@ -32,6 +32,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
 
 Route::get('/collections', [CollectionsController::class, 'index'])->middleware('auth');
+Route::get('/collections/{id}', [CollectionsController::class, 'show'])->middleware('auth')->name('collections.detail');
 
 Route::get('/cart', function () {
     return view('cart.index', [

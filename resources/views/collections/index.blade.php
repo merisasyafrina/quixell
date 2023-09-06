@@ -7,7 +7,7 @@
         @foreach ($collections as $collection)
         <div class="col">
             <div class="p-3">
-                <a href="#" style="text-decoration: none; color: unset;">
+                <a href="/collections/{{ $collection->id }}" style="text-decoration: none; color: unset;">
                     <img style="width: 100%; height: 350px; object-fit: cover;" src="{{ $collection->photo }}" alt="Collection Image">
                     <div class="mt-3" style="display: flex; flex-direction: column; align-items: flex-start;">
                         <h6 style="margin: unset"><strong>{{ $collection->name }}</strong></h6>
