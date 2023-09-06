@@ -15,4 +15,14 @@ class CollectionsController extends Controller
             'collections' => $collections,
         ]);
     }
+
+    public function show($id)
+    {
+        $collection = Collections::findOrFail($id);
+
+        return view('collections.detail', [
+            'title' => 'Collection Details',
+            'collection' => $collection,
+        ]);
+    }
 }
