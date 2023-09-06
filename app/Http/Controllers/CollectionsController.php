@@ -50,6 +50,6 @@ class CollectionsController extends Controller
         }
 
         // Redirect to the 'cart.index' route with a success message
-        return redirect()->route('cart.index')->with('success', 'Item added to cart successfully.');
+        return redirect()->route('cart.index');
     }
 }
